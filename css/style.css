@@ -10,6 +10,12 @@ html { font-size: 62.5%; }
   font-style:normal;font-weight:400;src:url(/fonts/Helvetica-Bold.eot?#iefix) format("embedded-opentype"),url(/fonts/Helvetica-Bold.woff) format("woff"),url(/fonts/Helvetica-Bold.ttf) format("truetype"),url(/fonts/Helvetica-Bold.svg#svgFontName) format("svg");
 }
 
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /*.ol{
   background-image: url("/Users/sami/Desktop/DU/images/home-header.jpg");
   background-position: center;
@@ -200,27 +206,77 @@ color:#808080;
   float: right;
 }
 
-.disciplines a{
-  text-decoration: none;
-  color: black;
-}
-
-.disciplines div{
-  width: 99%;
-  border: 2px solid white;
-  display: inline-flex;
-  padding: 10px 0px;
-  transition: all 1.5s ease;
-}
-
-.disciplines div:hover{
-  border: 2px solid #0033AB;
-  border-radius: 20px;
-}
-
-.disciplines div img{
+.disciplines button img{
   width: 42px;
   height: 42px;
+}
+
+.disciplines button{
+  display: inline-block;
+  width: 90%;
+  position: relative;
+  padding: 10px 0px;
+  align-items: center;
+  background: none;
+  border: none;
+  font-size: 18px; font-size: 1.8rem;
+  cursor: pointer;
+  margin: 10px 20px;
+  background: rgba(0,0,0,0.09);
+}
+
+.disciplines button::before, .disciplines button::after{
+  content:"";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #0033AB;
+}
+
+.disciplines span::before, .disciplines span::after{
+  content:"";
+  width:2px;
+  height:0;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #0033AB;
+}
+
+.disciplines button:hover::before, .disciplines button:hover::after{
+  width: 100%;
+}
+.disciplines button:hover .disciplines span::before, .disciplines button:hover .disciplines span::after{
+  height: 100%;
+}
+
+.btn-1::before, .btn-1::after{
+  transition-delay: 0.2s;
+}
+.btn-1 span::before, .btn-1 span::after{
+  transition-delay: 0s;
+}
+.btn-1::before{
+  right: 0;
+  top: 0;
+}
+.btn-1::after{
+  left: 0;
+  bottom: 0;
+}
+.btn-1 span::before{
+  left: 0;
+  top: 0;
+}
+.btn-1 span::after{
+  right: 0;
+  bottom: 0;
+}
+.btn-1:hover::before, .btn-1:hover::after{
+  transition-delay: 0s;
+}
+.btn-1:hover span::before, .btn-1:hover span::after{
+  transition-delay: 0.2s;
 }
 
 @media (min-aspect-ratio: 16/9) {
